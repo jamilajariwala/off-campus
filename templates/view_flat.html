@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Tangerine|Sofia|Merriweather|Neonderthaw&effect=outline|emboss|shadow-multiple|fire-animation|fire"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <script src="/static/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container-fluid">
+        <div class="nav_bar">
+          <div class="main_logo">
+            <div class="logo">
+              <img src="/static/images/asset/logob (3).png" alt="logo" />
+            </div>
+            <div class="site_name">
+              <p>Off-Campus</p>
+            </div>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="/" class="a">Home</a></li>
+              <li><a href="/view_property" class="a">Explore</a></li>
+              <li><a href="/fd" class="a">Feedback</a></li>
+              {% if request.user.is_anonymous %}
+              <li><a href="/login" class="a">Login</a></li>
+              {% else %}
+              <li><a href="/view_book" class="a">My Booking</a></li>
+              <li><a href="/logout" class="a">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-0 col-sm-0 col-lg-2 col-xl-2"></div>
+          <div class="col-12 col-sm-12 col-lg-8 col-xl-8">
+            <div
+              class="carousel slide"
+              id="corouselDemo"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                {% for i in flat.flat_images_set.all %}
+                <div
+                  class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}"
+                >
+                  <div class="carousel_room">
+                    <img src="{{ i.image.url }}" alt="living" />
+                  </div>
+                </div>
+                {% endfor %}
+
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#corouselDemo"
+                  data-bs-slide="prev"
+                >
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button
+                  type="button"
+                  class="carousel-control-next"
+                  data-bs-target="#corouselDemo"
+                  data-bs-slide="next"
+                >
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-0 col-sm-0 col-lg-2 col-xl-2"></div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="carousel_writing_heading">Address</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="carousel_writing_content">{{ flat.address }}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="carousel_writing_heading">Amenities</div>
+          </div>
+        </div>
+        <div class="main_carousel_icon_writing">
+          <div class="row">
+            {% for i in aminitie %}
+            <div class="col-3 col-sm-3 col-md-1 col-lg-1 col-xl-1">
+              <div class="room_logo">
+                <img src="{{ i.logo.url }}" />
+              </div>
+            </div>
+            <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+              <div class="carousel_icon_writing">{{ i.name }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="carousel_writing_heading">Details</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="carousel_details main_carousel_icon_writing">
+              <p>{{ flat.details }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="carousel_writing_heading">Nearby Location</div>
+          </div>
+        </div>
+        <div class="row">
+          {% for i in flat.flat_images_set.all %}
+          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+            <div class="carousel_writing_content">
+              <p>{{ i.nearby }}</p>
+              <p>{{ i.km }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="carousel_writing_heading">Accommodation Details</div>
+          </div>
+        </div>
+        <div class="row">
+          {% for i in flat.flat_images_set.all %}
+          <div class="col-12">
+            <div class="carousel_writing_content">
+              <p>{{ i.accommodation }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="row">
+          <center>
+            <div class="col-2">
+              {% if request.user.is_anonymous %}
+              <a href="/login" class="flat_redirect">
+                <div class="bookbutton">Book Now</div>
+              </a>
+              {% else %}
+              <a href="/booking" class="flat_redirect">
+                <div class="bookbutton">Book Now</div>
+              </a>
+              {% endif %}
+            </div>
+          </center>
+        </div>
+      </div>
+    </section>
+    <br /><br /><br />
+
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          {% for i in f %}
+
+          <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="room_main">
+              <div class="room">
+                <img src="{{ i.livingroom.url }}" />
+              </div>
+              <div class="room_writing">
+                <p>{{ i.bhk }}</p>
+              </div>
+              <div class="row">
+                <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                  <div class="room_logo">
+                    <img src="/static/images/asset/logo/location.png" />
+                  </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-10 col-lg-10 col-xl-10">
+                  <div class="address">
+                    <p>{{ i.address }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <div class="room_logo">
+                    <img src="/static/images/asset/logo/sleeping.png" />
+                  </div>
+                </div>
+                <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                  <div class="address">
+                    <p>2 Bedroom</p>
+                  </div>
+                </div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <div class="room_logo">
+                    <img src="/static/images/asset/logo/cooking.png" />
+                  </div>
+                </div>
+                <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                  <div class="address">
+                    <p>Kitchen</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <div class="room_logo">
+                    <img src="/static/images/asset/logo/bathtub.png" />
+                  </div>
+                </div>
+                <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                  <div class="address">
+                    <p>2 Washroom</p>
+                  </div>
+                </div>
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                  <div class="room_logo">
+                    <img src="/static/images/asset/logo/male.png" />
+                  </div>
+                </div>
+                <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                  <div class="address">
+                    <p>{{ i.gender }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <center>
+                  <div class="col-4">
+                    <a href="/view_flat/{{i.id}}" class="flat_redirect">
+                      <div class="button">view</div>
+                    </a>
+                  </div>
+                </center>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container-fluid">
+        <div class="main_footer">
+          <div class="row">
+            <div class="col">
+              <div>
+                <h2 class="icon_heading">contact us</h2>
+                <img
+                  src="/static/images/asset/telephone.png"
+                  alt=""
+                  class="icon"
+                /><span><label class="contact">+91 0258963541</label></span>
+                <br />
+                <img
+                  src="/static/images/asset/mail.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">offcampus@gmail.com</label></span
+                >
+                <br />
+                <img
+                  src="/static/images/asset/logo/location.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">
+                    Amboli Seizer Rd, Andheri, Mumbai</label
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <p class="icon_heading">follow us on</p>
+                <span class=""
+                  ><img
+                    src="/static/images/asset/whatsapp.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/twitter.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/instagram.png"
+                    alt=""
+                    class="icons"
+                /></span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="link">
+                <ul>
+                  <li><a href="/" class="a_main">Home</a></li>
+                  <li><a href="/view_property" class="a">Search</a></li>
+                  <li><a href="/fd" class="a">Feedback</a></li>
+                  {% if request.user.is_anonymous %}
+                  <li><a href="/login" class="a">Login</a></li>
+                  {% else %}
+                  <li><a href="/view_book" class="a">My Booking</a></li>
+                  <li><a href="/logout" class="a">Logout</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

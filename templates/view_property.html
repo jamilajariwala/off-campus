@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/static/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container-fluid">
+        <div class="nav_bar">
+          <div class="main_logo">
+            <div class="logo">
+              <img src="/static/images/asset/logob (3).png" alt="logo" />
+            </div>
+            <div class="site_name">
+              <p>Off-Campus</p>
+            </div>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="/" class="a">Home</a></li>
+              <li><a href="/view_property" class="a_main">Explore</a></li>
+              <li><a href="/fd" class="a">Feedback</a></li>
+              {% if request.user.is_anonymous %}
+              <li><a href="/login" class="a">Login</a></li>
+              {% else %}
+              <li><a href="/view_book" class="a">My Booking</a></li>
+              <li><a href="/logout" class="a">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        {%for i in flat%}
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="room_main">
+            <div class="room">
+              <img src="{{i.livingroom.url}}" />
+            </div>
+            <div class="room_writing">
+              <p>{{i.bhk}}</p>
+            </div>
+            <div class="row">
+              <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+                <div class="room_logo">
+                  <img src="/static/images/asset/logo/location.png" />
+                </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-10 col-lg-10 col-xl-10">
+                <div class="address">
+                  <p>{{i.address}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="room_logo">
+                  <img src="/static/images/asset/logo/sleeping.png" />
+                </div>
+              </div>
+              <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                <div class="address">
+                  <p>Bedroom</p>
+                </div>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="room_logo">
+                  <img src="/static/images/asset/logo/cooking.png" />
+                </div>
+              </div>
+              <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                <div class="address">
+                  <p>Kitchen</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="room_logo">
+                  <img src="/static/images/asset/logo/bathtub.png" />
+                </div>
+              </div>
+              <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                <div class="address">
+                  <p>Washroom</p>
+                </div>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="room_logo">
+                  <img src="/static/images/asset/logo/intersection.png" />
+                </div>
+              </div>
+              <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4">
+                <div class="address">
+                  <p>{{i.gender}}</p>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <center>
+                <div class="col-4">
+                  <a href="/view_flat/{{i.id}}" class="flat_redirect">
+                    <div class="button">view</div></a
+                  >
+                </div>
+              </center>
+            </div>
+          </div>
+        </div>
+
+        {%endfor%}
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid">
+        <div class="main_footer">
+          <div class="row">
+            <div class="col">
+              <div>
+                <h2 class="icon_heading">contact us</h2>
+                <img
+                  src="/static/images/asset/telephone.png"
+                  alt=""
+                  class="icon"
+                /><span><label class="contact">+91 0258963541</label></span>
+                <br />
+                <img
+                  src="/static/images/asset/mail.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">offcampus@gmail.com</label></span
+                >
+                <br />
+                <img
+                  src="/static/images/asset/logo/location.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">
+                    Amboli Seizer Rd, Andheri, Mumbai</label
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <p class="icon_heading">follow us on</p>
+                <span class=""
+                  ><img
+                    src="/static/images/asset/whatsapp.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/twitter.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/instagram.png"
+                    alt=""
+                    class="icons"
+                /></span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="link">
+                <ul>
+                  <li><a href="/" class="a_main">Home</a></li>
+                  <li><a href="/view_property" class="a">Search</a></li>
+                  <li><a href="/fd" class="a">Feedback</a></li>
+                  {% if request.user.is_anonymous %}
+                  <li><a href="/login" class="a">Login</a></li>
+                  {% else %}
+                  <li><a href="/view_book" class="a">My Booking</a></li>
+                  <li><a href="/logout" class="a">Logout</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

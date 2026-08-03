@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/static/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container-fluid">
+        <div class="nav_bar">
+          <div class="main_logo">
+            <div class="logo">
+              <img src="/static/images/asset/logob (3).png" alt="logo" />
+            </div>
+            <div class="site_name">
+              <p>Off-Campus</p>
+            </div>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="/" class="a">Home</a></li>
+              <li><a href="/view_property" class="a">Explore</a></li>
+              <li><a href="/fd" class="a">Feedback</a></li>
+              {% if request.user.is_anonymous %}
+              <li><a href="/login" class="a_main">Login</a></li>
+              {% else %}
+              <li><a href="/view_book" class="a">My Booking</a></li>
+              <li><a href="/logout" class="a">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="bg">
+        <div class="row">
+          <div class="col-md-3 col-lg-4 col-xl-4"></div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="loginform">
+              <form action="" method="POST">
+                {% csrf_token %}
+                <center>
+                  <h1>Booking</h1>
+                  <br />
+                </center>
+                <center>
+                  <h3>---Presonal Information---</h3>
+                  <br />
+                </center>
+                <input
+                  type="text"
+                  name="fnm"
+                  placeholder="First Name"
+                  autocomplete="off"
+                  required
+                /><br />
+                <input
+                  type="text"
+                  name="lnm"
+                  placeholder="Last Name"
+                  autocomplete="off"
+                  required
+                /><br />
+                <input
+                  type="text"
+                  name="scno"
+                  placeholder="Contact No. (Student)"
+                  autocomplete="off"
+                  required
+                /><br />
+                <input
+                  type="text"
+                  name="pcno"
+                  placeholder="Contact No. (Parent)"
+                  autocomplete="off"
+                  required
+                /><br />
+                <input
+                  type="text"
+                  name="semail"
+                  placeholder="Email (Student)"
+                  autocomplete="off"
+                  required
+                /><br />
+                <input
+                  type="text"
+                  name="pemail"
+                  placeholder="Email (Parent)"
+                  autocomplete="off"
+                  required
+                /><br />
+                <label>Gender</label><br />
+                <label class="fm"
+                  >Male<input type="radio" value="Male" name="gender"
+                /></label>
+                <label class="fm"
+                  >Female<input type="radio" value="Female" name="gender"
+                /></label>
+                <textarea
+                  name="address"
+                  placeholder="Residential Address"
+                  required
+                ></textarea
+                ><br />
+                <center>
+                  <h3>---Booking Details---</h3>
+                  <br />
+                </center>
+                <input
+                  type="text"
+                  name="checkin"
+                  placeholder="Check-In Date"
+                  autocomplete="off"
+                  required
+                /><br />
+                <input
+                  type="text"
+                  name="checkout"
+                  placeholder="Check-Out Date"
+                  autocomplete="off"
+                  required
+                /><br />
+                <label>Type</label><br />
+                <label class="fm"
+                  >Single<input type="radio" value="single" name="type"
+                /></label>
+                <label class="fm"
+                  >Sharing<input type="radio" value="sharing" name="type"
+                /></label>
+                <label>Payment Mode</label><br />
+                <label class="fm"
+                  >Cash<input type="radio" value="cash" name="mode"
+                /></label>
+                <label class="fm"
+                  >Online<input type="radio" value="online" name="mode"
+                /></label>
+                <a href="/rules" class="signup">house rules</a>
+                <input type="submit" name="submit" value="Submit" /><br />
+              </form>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-4 col-xl-4"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid">
+        <div class="main_footer">
+          <div class="row">
+            <div class="col">
+              <div>
+                <h2 class="icon_heading">contact us</h2>
+                <img
+                  src="/static/images/asset/telephone.png"
+                  alt=""
+                  class="icon"
+                /><span><label class="contact">+91 0258963541</label></span>
+                <br />
+                <img
+                  src="/static/images/asset/mail.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">offcampus@gmail.com</label></span
+                >
+                <br />
+                <img
+                  src="/static/images/asset/logo/location.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">
+                    Amboli Seizer Rd, Andheri, Mumbai</label
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <p class="icon_heading">follow us on</p>
+                <span class=""
+                  ><img
+                    src="/static/images/asset/whatsapp.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/twitter.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/instagram.png"
+                    alt=""
+                    class="icons"
+                /></span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="link">
+                <ul>
+                  <li><a href="/" class="a_main">Home</a></li>
+                  <li><a href="/view_property" class="a">Search</a></li>
+                  <li><a href="/fd" class="a">Feedback</a></li>
+                  {% if request.user.is_anonymous %}
+                  <li><a href="/login" class="a">Login</a></li>
+                  {% else %}
+                  <li><a href="/view_book" class="a">My Booking</a></li>
+                  <li><a href="/logout" class="a">Logout</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/static/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container-fluid">
+        <div class="nav_bar">
+          <div class="main_logo">
+            <div class="logo">
+              <img src="/static/images/asset/logob (3).png" alt="logo" />
+            </div>
+            <div class="site_name">
+              <p>Off-Campus</p>
+            </div>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="/" class="a">Home</a></li>
+              <li><a href="/view_property" class="a">Explore</a></li>
+              <li><a href="/fd" class="a">Feedback</a></li>
+              {% if request.user.is_anonymous %}
+              <li><a href="/login" class="a_main">Login</a></li>
+              {% else %}
+              <li><a href="/view_book" class="a">My Booking</a></li>
+              <li><a href="/logout" class="a">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="bg">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 col-xl-3"></div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            {% for i in b %}
+            <div class="loginform">
+              <center>
+                <h1>View Booking</h1>
+                <br />
+              </center>
+              <center>
+                <h3>------Personal Information------</h3>
+                <br />
+              </center>
+
+              <p class="viewbooking">First Name:</p>
+              <p class="viewbookingvalue">{{i.first_name}}</p>
+              <p class="viewbooking">Last Name:</p>
+              <p class="viewbookingvalue">{{i.last_name}}</p>
+              <p class="viewbooking">Contact No. (Student):</p>
+              <p class="viewbookingvalue">{{i.student_cno}}</p>
+              <p class="viewbooking">Contact No. (Parent):</p>
+              <p class="viewbookingvalue">{{i.parent_cno}}</p>
+              <p class="viewbooking">Email (Student):</p>
+              <p class="viewbookingvalue">{{i.student_email}}</p>
+              <p class="viewbooking">Email (Parent):</p>
+              <p class="viewbookingvalue">{{i.parent_email}}</p>
+              <p class="viewbooking">Gender:</p>
+              <p class="viewbookingvalue">{{i.gender}}</p>
+              <p class="viewbooking">Residential Address:</p>
+              <p class="viewbookingvalue">{{i.address}}</p>
+              <center>
+                <h3>------Booking Details------</h3>
+                <br />
+              </center>
+              <p class="viewbooking">Check-In Date:</p>
+              <p class="viewbookingvalue">{{i.check_in_date}}</p>
+              <p class="viewbooking">Check-Out Date:</p>
+              <p class="viewbookingvalue">{{i.check_out_date}}</p>
+              <p class="viewbooking">Type:</p>
+              <p class="viewbookingvalue">{{i.type}}</p>
+              <p class="viewbooking">Payment Mode:</p>
+              <p class="viewbookingvalue">{{i.payment_mode}}</p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid">
+        <div class="main_footer">
+          <div class="row">
+            <div class="col">
+              <div>
+                <h2 class="icon_heading">contact us</h2>
+                <img
+                  src="/static/images/asset/telephone.png"
+                  alt=""
+                  class="icon"
+                /><span><label class="contact">+91 0258963541</label></span>
+                <br />
+                <img
+                  src="/static/images/asset/mail.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">offcampus@gmail.com</label></span
+                >
+                <br />
+                <img
+                  src="/static/images/asset/logo/location.png"
+                  alt=""
+                  class="icon"
+                /><span
+                  ><label class="contact">
+                    Amboli Seizer Rd, Andheri, Mumbai</label
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div>
+                <p class="icon_heading">follow us on</p>
+                <span class=""
+                  ><img
+                    src="/static/images/asset/whatsapp.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/twitter.png"
+                    alt=""
+                    class="icons"
+                /></span>
+                <span
+                  ><img
+                    src="/static/images/asset/instagram.png"
+                    alt=""
+                    class="icons"
+                /></span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="link">
+                <ul>
+                  <li><a href="/" class="a_main">Home</a></li>
+                  <li><a href="/view_property" class="a">Search</a></li>
+                  <li><a href="/fd" class="a">Feedback</a></li>
+                  {% if request.user.is_anonymous %}
+                  <li><a href="/login" class="a">Login</a></li>
+                  {% else %}
+                  <li><a href="/view_book" class="a">My Booking</a></li>
+                  <li><a href="/logout" class="a">Logout</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

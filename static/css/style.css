@@ -1,0 +1,512 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    
+}
+/*-----------variables----------------*/
+@font-face {
+    font-family: wed;
+    src: url(fonts/WeddingdayPersonalUseRegular-1Gvo0.ttf);
+}
+@font-face {
+    font-family: azonia;
+    src: url(fonts/Azonix-1VB0.otf);
+}
+@font-face {
+    font-family: autumn;
+    src: url(fonts/AutumnFlowers-9YVZK.otf);
+}
+
+@font-face {
+    font-family: king;
+    src: url(fonts/KingsmanDemo-1GVgg.ttf);
+}
+
+@font-face {
+    font-family: play;
+    src: url(fonts/PlayfairDisplay-Regular.ttf);
+}
+
+:root{
+    --color1:#46211A;
+    --color2:#9e908d;
+    --color3:#73605B;
+    --color4:#BBA095;
+    --color5:#B3A398;
+    --color6:#AD9E9D;
+    --color7:#8B8998;
+    --color8:#35394D;
+    --color9:#E7E2E2;
+    --color10:#EFDCCC;
+    --color11:#D1B7A1;
+}
+.container-fluid
+{
+    max-width: 1440px;
+}
+/*---------------nav-----------------*/
+nav{
+    position: sticky;
+    top:0px;
+    z-index:1;
+ }
+ .nav_bar{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    background-color:var(--color8);
+}   
+.main_logo{
+    margin:2px 10px;
+}
+.logo{
+    padding: 0px 35px;
+}
+.site_name{
+    font-family:azonia;
+    font-size: 20px;
+    color: var(--color2);
+}
+.links{
+    margin: 20px 0px;
+}
+ul{
+    list-style: none;
+}
+li{
+    display: inline-block;
+}
+.a{
+    text-decoration:none;
+    color: var(--color2);
+    padding:5px 20px;
+    margin:0px 20px;
+    font-family:Arial Rounded MT Bold;
+    font-size: 25px;
+}
+.a_main{
+    text-decoration:none;   
+    color:var(--color4);
+    padding:5px 20px;
+    margin:0px 20px;
+    font-family:Arial Rounded MT Bold;
+    font-size: 25px;
+}
+.a:hover,.a_main:hover{
+    color:var(--color4);
+}
+
+
+
+/*------------image section-------------*/  
+.image{
+    overflow: hidden; 
+}
+.image img{
+    height: 100%;
+    width:100%;
+}
+.image_text{
+    position: absolute;
+    top:300px;
+    text-align: center;
+    opacity:0.9;
+    font-family:autumn;
+    font-size: 55px;
+    color: var(--color1);
+}
+/*-----------side_image-----------*/
+.side_image_section{
+    transition:background-color 1s ease;
+}
+.side_image_section:hover{
+    background-color: var(--color6);
+}
+.side_image{
+    overflow: hidden;
+    margin:80px 20px;
+    border-radius: 20px;
+   border: solid var(--color8) 3px;
+   transition: transform 2s;
+}
+.side_image:hover{
+    transform: scale(1.05);
+}
+.side_image img{
+    height: 100%;
+    width: 100%;
+}
+.side_writing{  
+    margin:80px 0px;
+    padding: 10px;
+}
+.heading{
+    font-family:king;
+    font-size: 50px;
+    color:white ;
+}
+.content_heading{
+    font-size:30px;
+    font-family:play;
+    color: white;
+    text-align:justify;
+}
+.demo{
+	border:solid  black 1px;
+}
+/*------------chat_with_landlord---------*/
+.side_chat_landord{
+    transition: background-color 1s ease;
+}
+.side_chat_landord:hover{
+    background-color:var(--color6);
+}
+.side_chat_landord_image{
+    overflow: hidden;
+    margin:80px 20px;
+    border-radius: 20px;
+   border: solid var(--color8) 3px;
+   transition: transform 2s;
+}
+.side_chat_landord_image:hover{
+    transform: scale(1.105);
+}
+.side_chat_landord_image img{
+    height:100%;
+    width:100%;
+}   
+.side_lanlord_chating{
+    margin:80px 0px;
+    padding: 10px;
+}
+/*------steps_to_follow---------*/
+.steps_mainheading{
+    font-size: 45px;
+    font-family: Arial Rounded MT Bold  ;
+    text-align: center;
+    margin: 30px;
+}
+.steps_heading{
+    font-size: 60px;
+    font-family:play;
+}
+.steps_subheading{
+    font-size:40px;
+    font-family: king;
+}
+.steps_content{
+    
+     font-size:20px;
+    font-family:play;
+    text-align: justify;
+}
+.steps{
+    height: 450px;
+    padding:40px;
+    margin: 20px;
+    background-image:linear-gradient(to bottom ,var(--color6),70%, var(--color1));
+    color:white;
+     transition:box-shadow 1s;
+     border-radius: 50px;
+
+}
+.steps:hover{
+    box-shadow: 5px -5px 5px var(--color8);
+}
+/*----city photo----*/
+.city{
+    position: relative;
+    margin-bottom: 20px;
+}
+.cityimg{
+    overflow: hidden;
+    height: 250px;
+    transition: .5s;
+}
+.cityimg img{
+    height: 100%;
+    width: 100%;
+}
+.citynm{
+   position: absolute; 
+   top: 40%;
+   left: 30%;
+   opacity: 0;
+   transition: .5s;
+   font-size: 50px;
+   font-family: king;
+   color: black;
+}
+.citynmpune{
+    position: absolute; 
+    top: 40%;
+    left: 35%;
+    opacity: 0;
+    transition: .5s;
+    font-size: 50px;
+    font-family: king;
+    color: black;
+ }
+
+.city:hover .cityimg{
+    opacity: 0.4;
+}
+.city:hover .citynm, .city:hover .citynmpune{
+    opacity: 1;
+   
+}
+/*--------------room-----------*/
+.room{
+    overflow: hidden;
+    height: 300px;
+    padding: 20px;
+    transition: transform 2s ease;
+    
+}
+.room:hover{
+    transform:scale(1.05);
+}
+.room img{
+    height:100%;
+    width:100%;
+    border: solid black 1px;
+}
+.room_writing{
+    font-family: king;
+    text-align: center;
+    font-size: xx-large;
+}
+.room_logo{
+    overflow: hidden;
+    margin-top:5px;
+}
+.room_logo img{
+    height: 100%;
+    width:100%;
+}
+.address{
+    font-family: Arial Rounded MT Bold;
+    font-size: large;
+}
+.room_main{
+    box-shadow: 5px -5px 5px var(--color7);
+    background-color: var(--color9);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 700px;
+}
+.flat_redirect{
+    color:black;
+    text-decoration: none;
+   
+}
+.button{
+    border: solid black 1px;
+    border-radius: 50px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    font-size: large;
+    transition: box-shadow 1s;
+    transition: background-color 1s;
+    font-family: play;
+}
+.button:hover{
+    background-color: var(--color2);
+    box-shadow: -3px 3px 5px var(--color8);
+ 
+}
+/*-------footer-------*/
+.main_footer{
+    border: solid black 1px;
+    background-color: var(--color8);
+    margin-top: 50px;
+}
+.icons{
+    height: 50px;
+    width: 50px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+.icon_heading{
+    margin-top: 30px;
+    margin-left: 110px;
+    font-family:autumn ;
+    font-size: 50px;
+    color: var(--color2);
+}
+.link{
+    margin-top: 50px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+}
+.icon{
+    height: 30px;
+    width: 30px;
+    margin-left: 40px;  
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.contact{
+    color: var(--color2);
+    font-size: larger;
+}
+/*----mumbai flat-----*/
+.carousel_room{
+    overflow: hidden;
+    height: 500px;
+    margin-top: 50px;
+}
+.carousel_room img{
+    height:100%;
+    width:100%;
+}
+.carousel_writing_heading{
+    margin-top: 20px;
+    font-family: king;
+    font-size:50px;
+    text-align: center;
+}
+.carousel_writing_content{
+    margin-top: 20px;
+    font-family: Arial Rounded MT Bold;
+    font-size:30px;
+    text-align: center;
+}
+.carousel_details{
+    margin-top: 20px;
+    font-family: Arial Rounded MT Bold;
+    font-size:30px;
+}
+.carousel_icon_writing{
+    font-family: Arial Rounded MT Bold;
+    font-size:20px;
+    padding-top: 10px;
+    text-align: center;
+}
+.main_carousel_icon_writing{
+        margin: 20px;
+}
+/*---------feedback page-----------*/
+    .imag {
+        margin-top: 20px;
+        overflow: hidden;
+    }
+    .imag img {
+        width: 100%;
+        height: 100%;
+    
+    }
+    .form {
+      margin-top: 20px;
+        padding: 20px;
+    }
+    .form h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .form input[type="text"],
+    .form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid var(--color1);
+        border-radius: 5px;
+    }
+    .form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color:var(--color1);
+        color: #fff;
+    }
+	
+
+#submit{
+	margin-top:30px;
+
+}
+/*--------login-------------*/
+.bg{
+    background-image: radial-gradient(#efe5db,#ecdccf);
+    height: 100%;
+}
+
+.loginform{
+    margin-top: 60px;
+    padding: 20px;
+    border: solid var(--color1) 1px;
+    border-radius: 5px;
+    background-color: white;
+}
+.loginform input[type="text"],input[type="password"]
+{
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color1);
+}   
+.loginform input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color:var(--color1);
+    color: #fff;
+}
+.loginform textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color1);
+    border-radius: 5px;
+}
+.signup{
+    text-decoration: none;
+    color:black;
+}
+.signup:hover{
+    text-decoration: underline;
+}
+.gender{
+    margin-bottom: 15px;
+}
+.loginform input[type="radio"] {
+    margin-left: 10px;
+}
+.fm{
+    border: solid 1px var(--color1);
+    margin-bottom:20px;
+    margin-right: 5px;
+    padding: 5px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.bookbutton{
+    border: solid black 1px;
+    border-radius: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    font-size: large;
+    transition: background-color 1s;
+    font-family: play;
+}
+.bookbutton:hover{
+    background-color: var(--color2);
+   
+
+}
+/*-----view booking---------*/
+.viewbooking{
+    font-size: xx-large;
+}
+.viewbookingvalue{
+    font-size: x-large;
+}
